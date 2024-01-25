@@ -1,0 +1,23 @@
+    <view class="search-content">
+        <view class="searchDiv">
+          <image class="image1" src="/images/home03.png"></image>
+          <input class="inputs" 
+          value="{{inputValue}}" 
+          bindinput="onInput" 
+          bindconfirm="onConfirm" 
+          confirm-type="search" />
+          <image bindtap="clearInput" class="image2" src="/images/search01.png" hidden="{{!showClearIcon}}"></image>
+          <navigator url="/pages/souvenir/souvenir?type={{type}}&keywords={{keywords}}">
+              <text class="search-btn">搜索</text>
+          </navigator>
+        </view>
+        <view class="autocomplete" wx:if="{{showAutocomplete}}">
+          <view class="autocomplete-item" wx:for="{{autocompleteList}}" wx:key="index" 
+          bindtap="onAutocompleteTap">
+            <navigator url="/pages/goodsDetails/goodsDetails?id={{item.id}}">
+              {{item.name}}
+            </navigator>
+          </view>
+        </view>
+      </view>
+ 

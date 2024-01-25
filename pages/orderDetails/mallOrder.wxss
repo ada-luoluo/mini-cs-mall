@@ -1,0 +1,52 @@
+@import './listOrder.wxss';
+.orderMallList{
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 20rpx 24rpx;
+  box-shadow: 0 0 4px 0 #C8C8C8;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+.orderMallList>image{
+  width: 150rpx;
+  height: 150rpx;
+}
+.orderMallList>view{
+  width: calc(100% - 150rpx);
+  padding-left: 15rpx;
+}
+.orderMallList .desc{
+  font-size: 22rpx;
+  color: #898989;
+  padding-top: 15rpx;
+}
+.orderMallList .tolal{
+  font-size: 24rpx;
+  padding-top: 15rpx;
+  color: #707070;
+}
+.orderMallList .tolal>text{
+  font-size: 36rpx;
+  color: #D95049;
+  font-weight: bold;
+  padding-right: 10rpx;
+}
+.orderFlexText .address{
+  flex-wrap: wrap;
+}
+.orderFlexText .address text{
+  padding: 5rpx 0;
+  display: block;
+}
+.p-content{
+  display: flex;
+  justify-content: space-between;
+}
+.p-num{
+color: #707070;
+}
+
+.orderFlexText .address text {
+  text-align: right;
+}

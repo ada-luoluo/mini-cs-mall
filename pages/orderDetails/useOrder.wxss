@@ -1,0 +1,3 @@
+/* pages/orderDetails/useOrder.wxss */
+@import './listOrder.wxss';
+@import './mallOrder.wxss';

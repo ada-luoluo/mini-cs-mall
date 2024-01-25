@@ -1,0 +1,5 @@
+<view class="emptyDiv">
+  <image class="image_item" src="{{images}}" mode="widthFix"></image>
+  <view>{{tipText}}</view>
+  <button class="Btn" bindtap="changeBtn" >{{btnText}}</button>
+</view>

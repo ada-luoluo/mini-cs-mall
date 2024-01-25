@@ -1,0 +1,120 @@
+page{
+  background-color: rgba(247, 247, 247, 1);
+}
+.orderTypeText{
+  color: #ffffff;
+  font-size: 28rpx;
+  padding: 20rpx 0 30rpx;
+}
+.orderTypeText>text{
+  font-size: 36rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+  display: block;
+}
+.orderBackgrund{
+  font-size: 28rpx;
+  margin-top: 24rpx;
+}
+.orderBackgrund>view{
+  padding: 30rpx 24rpx;
+  border-radius: 20rpx;
+}
+.orderBackgrund>.title::before{
+  position: absolute;
+  content: "";
+  height: 1rpx;
+  width: 90%;
+  border-bottom: 1rpx dashed #DADADA;
+  bottom: 0;
+  left: 5%;
+}
+.orderBackgrund>.title{
+  position: relative;
+  background: 
+  radial-gradient(circle at left bottom, transparent 10px, #fff 0) top left /60% 100% no-repeat,
+  radial-gradient(circle at right bottom, transparent 10px, #fff 0) top right /60% 100% no-repeat;
+}
+.orderBackgrund>.texts{
+  background:
+  radial-gradient(circle at left top, transparent 10px, #fff 0) bottom left /60% 100% no-repeat,
+  radial-gradient(circle at right top, transparent 10px, #fff 0) bottom right /60% 100% no-repeat;
+}
+
+.orderNumber{
+  background: url("https://test51.chinaskynet.net/images/order05.png") no-repeat;
+  background-size: cover;
+  padding: 50rpx 30rpx;
+}
+.orderNumber>text{
+  color: #707070;
+  display: block;
+  margin-bottom: 15rpx;
+}
+.orderNumber .text>image{
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 8rpx;
+}
+.qrCodeImg{
+  text-align: center;
+  padding: 40rpx 0;
+}
+.qrCodeImg>image{
+  width: 300rpx;
+  height: 300rpx;
+  margin-bottom: 20rpx;
+}
+
+.orderFlexText .item{
+  display: flex;
+  justify-content: space-between;
+  color: #141414;
+  padding: 10rpx 0;
+}
+.orderFlexText .item>text:first-child{
+  color: #707070;
+}
+.orderFlexText .item .number{
+  font-size: 36rpx;
+}
+.BtnBorder{
+  font-weight: inherit;
+  background: none;
+  color: #707070;
+  border: 1px solid #707070;
+}
+.orderBottom{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 30rpx;
+  
+}
+.orderBottom button{
+  margin: 0!important;
+  width: 100%!important;
+}
+.payBtn{
+  display: flex;
+  justify-content: space-between;
+}
+.payBtn .payBtns{
+  width: 47%!important;
+}
+
+.uploader_files{
+  display: flex;  
+  flex-wrap: wrap;
+  margin: 0 -15rpx;
+}
+.uploader_files>view{
+  margin: 0 15rpx;
+}
+.uploader_files .images{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 15rpx;
+}

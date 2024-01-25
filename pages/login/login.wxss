@@ -1,0 +1,39 @@
+page{
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo image{
+   width: 300rpx;
+   display: block;
+   margin: 0 auto;
+}
+.log-txt{
+  padding: 40rpx 0;
+  color: #717375;
+  text-align: center;
+}
+
+.btn{
+   height: 84rpx;
+   background: var(--themeColor);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 100rpx;
+}
+
+.btn image{
+  width:44rpx;
+  margin-right: 14rpx;
+}
+.btn text{
+  color:#fff;
+}

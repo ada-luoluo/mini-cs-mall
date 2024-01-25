@@ -1,0 +1,11 @@
+<view class="downLoading">
+   <button class="loading-btn" loading="{{myLoading}}">
+      <block wx:if="{{myLoading}}">
+         頁面加載中...
+      </block>
+      <block wx:else>
+        -- 沒有更多數據了 --
+      </block>
+   </button>
+</view>
+

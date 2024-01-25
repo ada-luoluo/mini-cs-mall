@@ -1,0 +1,63 @@
+
+<view class="order-info">
+    <view class="order-content">
+    <view class="oder-info-img">
+      <image src="{{cover}}" class="order-img" mode="widthFix"></image>
+    </view>
+    <view class="order-info-txt">
+      <text class="text1">{{name}}</text>
+      <text class="text1 text4">{{flight_at}} {{flight_period}}</text>
+      <text class="text3">¥ {{amount}}</text>
+    </view>
+  </view>
+ </view>
+
+<view class="refund">
+  <view class="refund-bg">
+    <text class="title">退款信息</text>
+    <view class="refund-reason">
+     <text>退款理由</text>
+     <view class="choose" bindtap="showModal">
+       <!-- 请选择 -->
+       <text>{{selectedReasonText}}</text>
+       <image src="/images/home02.png" mode="widthFix" class="choose-icon"></image>
+     </view>
+    </view>
+    <view class="refund-prince">
+      <text>退款金額</text>
+      <text class="text2">￥{{amount}}</text>
+    </view>
+    <view class="refund-intro">
+      <image src="/images/preorder02.png" mode="widthFix" class="info-icon"></image>
+      <!-- <text>退款規則：需先提交退款申請，審核通過後，退回支付賬戶。</text> -->
+    </view>
+  </view>
+</view>
+
+<view class="btn">
+  <button class="refund-btn" bindtap="showCancelModal">提交</button>
+</view>
+
+    <cancel-modal 
+    show="{{showCancelModal}}" 
+    title="退款申請" 
+    subtitle="提交退款申請，審核通過後，退回支付賬戶" 
+    bind:close="onCancelModalClose" 
+    bind:cancel="onRefundConfirm"></cancel-modal>
+
+  <!-- 理由 弹窗 -->
+  <view class="modalBox" hidden="{{!isModal}}">
+    <view class="modalContant {{animationModal?'show':'hide'}}">
+      <view class="title">退款理由<image src="/images/popup01.png" bindtap="coloseModal"></image>
+      </view> 
+      <view class="resons">
+        <view wx:for="{{reasons}}" wx:key="index" data-index="{{index}}" data-id="{{item.id}}"  class="reson-li {{selectedReasonIndex===index ? 'selected' : ''}}" bindtap="onSelectReason">
+          {{item.content}}
+        </view>
+      </view>
+      <view>
+        <button class="choose-btn"  bindtap="onConfirm">確定</button>
+      </view>
+     </view>
+    </view>
+

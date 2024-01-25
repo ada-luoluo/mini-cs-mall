@@ -1,0 +1,39 @@
+
+<view class="upload">
+  <view class="upload-img">
+   <view class="avatar" bindtap="chooseImage">
+        <image src="/images/my09.png"  mode="widthFix" class="camera"></image>
+        <image src="{{avatar}}" class="avatar-img"></image>
+   </view>
+  </view>
+</view>
+<!--  -->
+<view class="edit">
+  <view class="edit-content">
+      <text class="edit-content-lable">暱稱</text>
+      <input placeholder="请输入"  value="{{name}}" bindinput="onNameInput"/>
+  </view>
+  <view class="edit-content">
+    <text class="edit-content-lable">性別</text>
+     <picker mode="selector" class="change-content"  range="{{genderList}}" value="{{index}}" bindchange="genderChange">
+          <view class="picker">
+            {{genderList[genderIndex]}}
+          </view>
+     </picker>
+     <image src="/images/my03.png" mode="widthFix" class="small-arrow"></image>
+  </view>
+  <view class="edit-content">
+    <text class="edit-content-lable">生日</text>
+      <picker class="change-content" mode="date" value="{{date}}"  bindchange="bindDateChange">
+        <view class="picker">
+        {{date}}
+        </view>
+      </picker>
+      <image src="/images/my03.png" mode="widthFix" class="small-arrow"></image>
+  </view>
+  <view class="save" bindtap="save">
+     <button class="save-btn">保存</button>
+  </view>
+ 
+ </view>
+

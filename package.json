@@ -1,0 +1,22 @@
+{
+  "name": "cs-mall",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChinaskyBell/wx-Daxin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChinaskyBell/wx-Daxin/issues"
+  },
+  "homepage": "https://github.com/ChinaskyBell/wx-Daxin#readme",
+  "dependencies": {
+    "@miniprogram-i18n/core": "^1.0.0-rc.12"
+  }
+}

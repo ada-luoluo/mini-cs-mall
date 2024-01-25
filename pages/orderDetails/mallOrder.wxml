@@ -1,0 +1,123 @@
+<view>
+  <navigateback title="訂單詳情" classHeight="{{false}}" scrollStyle="{{scrollStyle}}" />
+  <image src="/images/order22.png" class="imageBg" mode="widthFix" ></image>  
+  <view class="contantDiv">
+    <view class="orderTypeText" wx:if="{{order_status === 1}}">
+      <text>待付款...</text>
+      <!-- <view>請盡快付款</view> -->
+    </view>
+
+    <!-- 待完成 -->
+    <view class="orderTypeText"  wx:if="{{order_status === 3 || order_status === 4}}">
+      <text>待完成</text>
+      <!-- <view>请在线下进行时扫码使用</view> -->
+    </view>
+
+    
+    <!-- 已使用 -->    
+    <view class="orderTypeText" wx:if="{{order_status === 5}}">
+      <text>已完成</text>
+      <!-- <view>您的訂單已完成，快去留下評價吧</view> -->
+    </view>
+    <!-- 已评价 -->    
+    <view class="orderTypeText" wx:if="{{order_status === 6}}">
+      <text>已評價</text>
+      <!-- <view>您的訂單已評價</view> -->
+    </view>
+
+    <!-- 已退款 -->
+    <view class="orderTypeText" wx:if="{{order_status === 2}}">
+      <text>退款完成</text>
+      <!-- <view>您的订单已退款，欢迎您下次预订</view> -->
+    </view>
+
+    <!-- 已取消 -->
+    <view class="orderTypeText" wx:if="{{order_status === 0}}">
+      <text>订单已取消</text>
+    </view>
+
+    <!-- 订单号 -->
+    <view class="orderBackgrund">
+      <view class="title">订单号：{{no}}</view>
+      <view class="texts">
+        <view class="">
+          <block wx:for="{{products}}" wx:key="index">
+            <!-- item -->
+            <view class="orderMallList">
+              <image src="{{item.cover}}"></image>
+              <view class="p-content">
+               <view>
+                  <view>{{item.name}}</view>
+                  <view wx:for="{{item.product_skus}}" wx:key="product_sku_id">
+                    <view class="desc">
+                      {{item.product_attribute_group_name}} : {{item.product_attribute_value_name}}
+                    </view>
+                  </view>
+                  <view class="tolal"><text>{{item.price}}</text>/{{item.unit}}</view>
+               </view>
+                <view class="p-num">
+                  x{{item.num}}
+                </view>
+              </view>             
+            </view>
+          </block>         
+        </view>
+        <!-- <view class="qrCodeImg" wx:if="{{order_status === 4}}">
+          <image src="{{qr_code}}"></image>
+          <view>纪念品兑换码</view>
+        </view> -->
+      </view>   
+    </view>
+    <!-- 详细信息 -->
+    <view class="orderBackgrund">
+      <view class="title">詳細信息</view>
+      <view class="texts">
+        <view class="orderFlexText">
+          <view class="item">
+            <text>下單時間</text><text>{{created_at}}</text>
+          </view>
+          <view class="item">
+            <!-- 现场自取/快递邮寄（包邮） -->
+            <text>取貨方式</text><text>{{pickup_method}}</text>
+          </view>
+          <view class="item address" wx:if="{{user_address}}">
+            <text>地址信息</text>
+            <view>
+              <text>{{user_address.province_name}}{{user_address.city_name}}{{user_address.county_name}}{{user_address.address}}</text>
+              <text>{{user_address.receiver_name}} {{user_address.phone}}</text>
+            </view>
+          </view>        
+          <view class="item">
+            <text>實付</text><text class="number">￥{{amount}}</text>
+          </view>        
+        </view>
+      </view>   
+    </view>
+    <!-- 占位 -->
+    <view class="heightDiv"></view>
+
+  </view>
+  <view class="orderBottom">
+
+    <!-- 待付款 -->
+    <view  class="payBtn" wx:if="{{order_status === 1}}">     
+      <button class="payBtns BtnBorder" bindtap="showCancelModal">取消訂單</button>
+      <button class="payBtns Btn" bindtap="buyBtn">立即購買</button>
+    </view>
+
+    <!-- 待完成  详情页已展示二维码 所以无操作 -->
+    <view wx:if="{{order_status === 3 || order_status === 4}}"> </view>    
+
+    <!-- 已完成   删除订单 （纪念品订单不可退款）-->
+    <button class="BtnBorder" bindtap="deleteBtn" wx:if="{{order_status === 5 || order_status === 6 || order_status === 0}}"  bindtap="deteleOrder">刪除訂單</button>
+
+
+  </view>
+
+</view>
+
+
+<!-- 取消 -->
+<cancel-modal show="{{showCancelModal}}" bind:close="onCancelModalClose" bind:cancel="onCancelOrder"></cancel-modal>
+
+

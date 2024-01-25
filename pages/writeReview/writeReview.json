@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "upimg":"/components/upimg/upimg"
+  },
+  "navigationBarTitleText": "評價"
+}

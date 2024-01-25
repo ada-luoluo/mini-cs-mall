@@ -1,0 +1,52 @@
+<view class="form">
+  <view class="form-bg">
+    <view class="form-item">
+        <text class="label">收貨人</text>
+        <input class="input" placeholder="請輸入收貨人姓名" value="{{receiver_name}}"  bindinput="onInputName" />
+      </view>
+      <view class="form-item">
+        <text class="label">手機號碼</text>
+        <input class="input" type="number"  value="{{phone}}" placeholder="請輸入手機號"  bindinput="onInputPhone"  bindblur="onBlurPhone" />
+      </view>
+      <view class="form-item">
+        <text class="label">所在地區</text>
+        <view class="area">  
+         <view class="picker-view">
+          <view class="picker-item">
+            <picker mode="selector" range="{{provinces}}"  range-key="name" bindchange="bindProvinceChange"  value="{{index}}">
+            <view class="picker">{{currentProvince}}，</view>
+            </picker>
+          </view>
+          <view class="picker-item">
+            <picker mode="selector" range="{{cities}}" range-key="name" bindchange="bindCityChange" value="{{cityIndex}}">
+              <view class="picker">{{currentCity}}，</view>
+            </picker>
+          </view>
+          <view class="picker-item">
+            <picker mode="selector" range="{{districts}}" range-key="name" bindchange="bindDistrictChange" value="{{districtIndex}}">
+               <view class="picker">{{currentDistrict}}</view>
+            </picker>
+          </view>
+        </view>
+        <image src="/images/my03.png" class="arrow" mode="widthFix"></image>
+        </view>   
+      </view>
+      <view class="form-item">
+        <text class="label">詳細地址</text>
+        <textarea class="textarea" value="{{address}}" bindblur="bindTextAreaBlur" auto-height placeholder="請輸入詳細地址" />
+      </view>
+      <view class="form-item last-item">
+        <text class="label">設為默認地址</text>
+        <switch class="switch" checked="{{is_default}}" bindchange="onToggleDefault"></switch>
+      </view>
+  </view>
+</view>
+
+
+<view class="heightDiv"></view>
+<view class="btn-bg">
+<view>
+  <button class="btn-submit" bindtap="onSaveAddress">保存地址</button>
+</view>
+</view>
+

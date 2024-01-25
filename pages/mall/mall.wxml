@@ -1,0 +1,117 @@
+ <view class="mall-banner">
+
+<view class="top" style="padding-top: {{menuTop}}px;height: {{navBarHeight}}px;line-height: {{menuHeight}}px;">
+  <navigator url="/pages/selectAttractions/selectAttractions">
+
+  </navigator>
+   <view class="search">
+   <navigator url="/pages/productSearch/productSearch">
+      <view class="searchDiv">
+        <image class="image1" src="/images/home03.png"></image>
+        <input class="inputs" value="{{inputValue}}" bindconfirm="confirmInput" placeholder="搜索商品"	confirm-type="search" />
+      </view>
+    </navigator>
+  </view>
+</view>
+    <view>
+      <swiper class="banner-c" 
+      indicator-dots 
+      autoplay
+      indicator-dots 
+      indicator-color="#fff" 
+      indicator-active-color="#3383FF"
+      >
+         <swiper-item wx:for="{{banners}}" wx:key="index">
+         <view class="banner">
+          <image src="{{item.image}}" class="banner-img" mode="widthFix"></image>
+         </view>
+           
+          </swiper-item>
+      </swiper>
+    </view>
+  </view>
+  <!--  -->
+  <view class="mall-container">
+    <view class="mall">
+      <view class="mall-title">
+        <view class="title-left">
+          <image src="https://test51.chinaskynet.net/images/store014.png" mode="widthFix" class="title-img"></image>
+          <text class="text">硬件</text>
+         
+        </view>
+        <block wx:if="{{souvenirs && souvenirs.length > 0}}">
+          <navigator url="/pages/souvenir/souvenir?type=1">
+              <view class="title-right">
+                查看全部
+                <image src="/images/home06.png" class="arrow-icon" mode="widthFix"></image>
+              </view>
+          </navigator>
+        </block>
+
+      </view>
+      <!-- 纪念品 -->
+      <view class="goodsList" wx:if="{{souvenirs.length > 0}}">
+        <scroll-view class="goods-scroll" scroll-x>
+        <view class="goods">
+        <block wx:for="{{souvenirs}}" wx:key="index">
+          <goods-item myItem="{{item}}"></goods-item>
+        </block>
+        </view>
+        </scroll-view>
+      </view>
+      <view wx:else class="no-data">
+          <image src="/images/status03.png" mode="widthFix"></image>
+          <text>暫無商品</text> 
+      </view>
+    </view>
+
+    <!--  -->
+    <view class="mall mall-2">
+      <view class="mall-title">
+        <view class="title-left">
+          <image src="https://test51.chinaskynet.net/images/store014.png" mode="widthFix" class="title-img"></image>
+          <text class="text">其他</text>
+        </view>
+        <block wx:if="{{souvenirs && souvenirs.length > 0}}">
+            <view class="title-right">
+            <navigator url="/pages/souvenir/souvenir?type=2">
+            查看全部
+            <image src="/images/home06.png" class="arrow-icon" mode="widthFix"></image>
+            </navigator>
+          </view>
+        </block>
+      </view>
+      <!-- 研学科普 -->
+      <block wx:if="{{science.length > 0}}">
+        <view class="goodsList">
+          <scroll-view class="goods-scroll" scroll-x>
+          <view class="goods">
+            <block wx:for="{{science}}" wx:key="index">
+            <goods-item myItem="{{item}}"></goods-item>
+          </block>
+          </view>
+          </scroll-view>
+        </view>
+      </block>
+      <view wx:else class="no-data">
+          <image src="/images/status03.png" mode="widthFix"></image>
+          <text>暫無商品</text> 
+      </view>
+
+    </view> 
+  </view>
+
+
+
+  <!-- 购物车 -->
+  <navigator url="/pages/cart/cart">
+    <view class="cart">
+      <view class="cart-no">
+        {{cart_count}}
+      </view>
+      <image src="/images/store07.png"></image>
+    </view>
+</navigator>
+
+
+

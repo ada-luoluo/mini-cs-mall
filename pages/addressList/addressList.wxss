@@ -1,0 +1,162 @@
+.top{
+  background: linear-gradient(180deg, #3383FF 0%, #3283FF 10%, #F7F7F7 100%);
+  height: 500rpx;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.order-nav-bar{
+  display: flex;
+  padding: 60rpx 20rpx 0 20rpx;
+}
+.back{
+  width: 24rpx;
+}
+.nav-back-title{
+  width: calc(100% - 20rpx);
+  text-align: center;
+  color: #fff;
+}
+
+.empty{
+  padding:200rpx 30rpx 30rpx 30rpx;
+}
+
+.empty-bg{
+  background-color: #fff;
+  padding: 30rpx;
+  border-radius: 30rpx;
+}
+.no-img{
+  width: 60%;
+  display: block;
+  margin: 80rpx auto;
+}
+
+.add-btn{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  background: var(--themeColor);
+  font-weight: normal;
+  color: #fff;
+  margin-left: 30rpx!important;
+  margin-right: 30rpx!important;
+}
+/*******************/
+
+.address{
+  padding: 30rpx;
+  
+}
+
+.address-txt{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+}
+
+
+/*******/
+.phone {
+  padding-left: 20rpx;
+}
+
+.address-2 {
+  font-weight: bold;
+  padding: 16rpx 0;
+  font-size: 30rpx;
+}
+
+.edit-icon {
+  width: 32rpx;
+  /* margin-right: 40rpx; */
+}
+
+.edit{
+  width: 120rpx;
+  height: 154rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/*  */
+movable-area {
+  width: 510rpx; 
+}
+.container, movable-view {
+  box-sizing: border-box;
+  width: 750rpx;
+  height: 220rpx; 
+}
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+movable-view {
+  z-index: 5; 
+  padding: 20rpx;
+  overflow: hidden;
+}
+
+/* 隐藏部分样式--删除按钮 */
+.operations-content {
+  position: absolute;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
+  align-items: center;
+  z-index: 2; 
+  right: 20rpx;
+  top: 20rpx;
+  width: 200rpx; /* 隐藏部分的宽度 */
+  height: 194rpx;
+  background-color: #FF4141;
+  border-radius: 20rpx;
+}
+.operation-button {
+  width: 100%;
+  height: 100%;
+  line-height: 194rpx;
+  text-align: center;
+  color: #fff;
+}
+
+/* 卡片样式 */
+.card-container {
+  width: 100%;
+  word-break: break-all;
+  background-color: #fff;
+  border-radius: 16rpx;
+  height: 194rpx;
+}
+
+.show-operations {
+  position: absolute;
+  bottom: 10rpx;
+  right: 10rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+/*  */
+.all-adress{
+ padding-top: 120rpx;
+}
+
+.default{
+  background: #FF4141;
+  padding:5rpx 10rpx;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 5rpx;
+}

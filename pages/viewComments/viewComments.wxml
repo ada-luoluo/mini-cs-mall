@@ -1,0 +1,37 @@
+<view class="order-info">
+    <view class="order-content">
+    <view class="oder-info-img">
+      <image src="{{cover}}" class="order-img" mode="widthFix"></image>
+    </view>
+    <view class="order-info-txt">
+      <text class="text1">{{name}}</text>
+      <text class="text2">{{flight_at}} {{flight_period}}</text>
+      <text class="text3">¥ {{amount}}</text>
+    </view>
+  </view>
+ </view>
+<view class="comments">
+      <view class="comments-c">
+        <text class="comments-title">評價信息</text>
+        <view class="stars">
+          <block wx:for="{{ [1, 2, 3, 4, 5] }}" wx:key="index">
+            <image class="star" mode="widthFix" src="{{ index < rate ? '/images/Attractions09.png' : '/images/Attractions10.png' }}" data-score="{{ index }}" />
+          </block>
+       </view>
+        <view class="comments-txt">
+          {{content}}
+        </view>
+        <view class="uploadImgs">
+            <ul class="uploadImgs-ul">
+              <block wx:for="{{ imageList }}" wx:key="index">
+                <li class="uploadImgs-ul-li">
+                <image src="{{item}}" mode="widthFix" class="uploadImgs-li" bindtap="previewImage"/>
+                </li>
+              </block>
+            </ul>
+        </view>
+        <view class="comments-txt">
+          {{created_at}}
+        </view>
+      </view>
+  </view>

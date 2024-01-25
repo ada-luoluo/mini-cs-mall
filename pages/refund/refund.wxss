@@ -1,0 +1,129 @@
+.refund{
+  padding: 0 30rpx;
+}
+.refund-bg{
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+}
+.title{
+  display: block;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+.refund-prince{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  color: #707070;
+}
+.text2{
+  color: #FF4141;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.refund-intro{
+  display: flex;
+  color: #707070;
+}
+.info-icon{
+  width: 150rpx;
+   margin-right: 10rpx;
+   margin-top:8rpx;
+}
+.refund-intro text{
+   text-align: justify;
+}
+.btn{
+  position: fixed;
+  left: 20rpx;
+  right: 20rpx;
+  bottom: 80rpx;
+}
+
+.refund-btn{ 
+  background: var(--themeColor);
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  color: #fff;
+  font-weight: normal;
+}
+
+.refund-reason{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0 10rpx 0;
+  color: #707070;
+}
+.choose-icon{
+  width: 32rpx;
+}
+.choose{
+  display: flex;
+}
+
+.reson-li{
+  display: block;
+  text-align: center;
+  padding: 30rpx 0;
+  font-size: 32rpx;
+  color: #707070;
+  border-bottom: 1px solid #D8E7FF;
+}
+.resons text:last-child{
+  border-bottom:none
+}
+
+.choose-btn{
+ width: 100%;
+ background: var(--themeColor);
+ color: #fff;
+ font-weight: normal;
+ margin-top: 20rpx;
+}
+
+.selected{
+  font-weight: bold;
+  color: #323233;
+}
+
+
+.order-info{
+  padding: 30rpx;
+}
+.order-content{
+  display: flex;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  background-color:#fff;
+}
+
+.order-img{
+  width: 123px;
+  border-radius: 20rpx;
+  margin-right: 20rpx;
+}
+.text1{
+  display: block;
+  font-weight: bold;
+}
+.text2{
+  display: block;
+  color: #707070;
+  padding-top: 10rpx;
+}
+.text3{
+  color: #FF4141;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding-top: 40rpx;
+  display: block;
+}
+
+.text4{
+  color: #707070;
+  font-weight: normal;
+}

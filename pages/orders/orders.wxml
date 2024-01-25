@@ -1,0 +1,177 @@
+<view class="order">
+  <view class="order-s">
+    <Tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange" />
+  </view>
+</view>
+
+ <view class="order-container" wx:for="{{ordersList}}" wx:key="index">
+      <view class="order-content">
+        <view class="order-item">
+           <view class="oder-top">
+            <view class="order-no">
+             訂單號：{{item.no}}
+            </view>
+            <view class="order-states">
+              <view wx:if="{{item.order_status === 0}}" class="states-common states-0">已取消</view>
+              <view wx:if="{{item.order_status === 1}}" class="states-common states-1">未支付</view>
+              <view wx:if="{{item.order_status === 2}}" class="states-common states-2">已退款</view>
+              <view wx:if="{{item.order_status === 3}}" class="states-common states-3">已支付</view>
+              <view wx:if="{{item.order_status === 4}}" class="states-common states-4">待使用</view>
+              <view wx:if="{{item.order_status === 5}}" class="states-common states-5">已使用</view>
+              <view wx:if="{{item.order_status === 6}}" class="states-common states-6">已評價</view>
+              <view wx:if="{{item.order_status === 7}}" class="states-common states-1">退款申請中</view>
+              <view wx:if="{{item.order_status === 8}}" class="states-common states-0">退款拒絕</view>
+            </view>
+          </view>
+
+         <!-- 商城订单 -->
+         <block wx:if="{{item.products.length > 0}}" >
+          <navigator url="/pages/orderDetails/mallOrder?order_id={{item.order_id}}&order_status={{item.order_status}}">
+            <view class="order-info" wx:for="{{item.products}}" wx:key="product_id">
+              <view class="oder-info-img">
+                <image src="{{item.cover}}" class="order-img" mode="widthFix"></image>
+              </view>
+              <view class="mall-right-txt">
+                <view class="order-info-txt">              
+                <text class="text1">{{item.name}}</text>                          
+                <view>
+                   <view wx:for="{{item.product_skus}}" wx:key="product_sku_id">
+                    <view class="text2">
+                      {{item.product_attribute_group_name}} : {{item.product_attribute_value_name}}
+                    </view>
+                  </view>
+                </view>
+                </view>
+                <view class="num">
+                  <text>x{{item.num}}</text>
+                </view>
+              </view>  
+            </view>
+          </navigator>
+         </block>
+
+
+          <!-- 景点飞行订单 -->
+          <block wx:else="{{item.tourist_spot}}">
+              <navigator url="/pages/orderDetails/listOrder?id={{item.order_id}}">
+                <view class="order-info">
+                  <view class="oder-info-img">
+                    <image src="{{item.tourist_spot.cover}}" class="order-img" mode="widthFix"></image>
+                  </view>
+                  <view class="order-info-txt">
+                    <text class="text1">{{item.tourist_spot.name}}</text>
+                    <text class="text2">{{item.flight_at}} {{item.flight_period}}</text>
+                  </view>
+                </view>
+              </navigator>
+            </block>
+          <view class="order-bottom">
+            <!-- <view class="tips" wx:if="{{item.is_signed === 0 && (item.order_status === 3 || item.order_status === 4)}}">
+              未上传飞行体验须知图片
+             </view> -->
+
+            <view class="oder-price" wx:if="{{item.order_status === 1}}">
+              需付款：<span>¥ {{item.amount}}</span>
+            </view>
+ 
+
+
+            <!-- 操作按钮 -->
+            <view class="oder-btns">
+
+               <!-- 待付款 -->
+              <block wx:if="{{item.order_status === 1}}">
+                <button class="btns-1" type="default" plain  bindtap="showCancelModal" data-orderid="{{item.order_id}}">取消訂單</button>
+               
+                <button class="btns-2" bindtap="payNow"  data-orderid="{{item.order_id}}">立即支付</button> 
+
+              </block>
+
+              <!-- 退款 -->
+              <block wx:if="{{item.order_status === 2 || item.order_status === 0}}">
+                <button class="btns-1" type="default" plain bindtap="deteleOrder" data-orderid="{{item.order_id}}">刪除訂單</button>
+              </block>
+
+              <!-- 待完成 -->
+              <block wx:if="{{item.order_status === 3 || item.order_status === 4}}">
+               <block wx:if="{{item.order_type === 1}}">
+                  <navigator url="/pages/refund/refund?order_id={{item.order_id}}&cover={{item.tourist_spot.cover}}">
+                    <button class="btns-1" type="default" plain>退款申請</button>
+                  </navigator>
+              
+                  <!-- <navigator wx:if="{{item.is_signed === 0}}" url="/pages/orderDetails/listOrder?id={{item.order_id}}">
+                       <button class="btns-2">去上传</button> 
+                  </navigator>
+                  <navigator wx:else="{{item.is_signed === 1}}" url="/pages/orderDetails/listOrder?id={{item.order_id}}">
+                       <button class="btns-2">去使用</button> 
+                  </navigator> -->
+
+                 </block>
+
+                  <!-- <navigator wx:else url="/pages/orderDetails/mallOrder?order_id={{item.order_id}}">
+                    <button class="btns-2">去使用</button> 
+                  </navigator> -->
+
+
+                  
+              </block>
+
+              <!-- 已完成 -->
+              <block wx:if="{{item.order_status === 5}}">
+                <navigator wx:if="{{item.order_type === 1}}" url="/pages/writeReview/writeReview?order_id={{item.order_id}}">
+                    <button class="btns-2">去評價</button> 
+                </navigator>
+                <button wx:else="" class="btns-1" type="default" plain bindtap="deteleOrder" data-orderid="{{item.order_id}}">刪除訂單</button>
+              </block>
+
+              <block wx:if="{{item.order_status === 6}}">
+                <button class="btns-1" type="default" plain bindtap="deteleOrder" data-orderid="{{item.order_id}}">刪除訂單</button>
+                <navigator wx:if="{{item.order_type === 1}}" url="/pages/viewComments/viewComments?order_id={{item.order_id}}">
+                    <button class="btns-2">查看評論</button> 
+                </navigator>
+              </block>
+
+              <block wx:if="{{item.order_status === 7}}">
+              </block>
+
+              <block wx:if="{{item.order_status === 8}}">
+                <navigator url="/pages/refund/refund?order_id={{item.order_id}}&cover={{item.tourist_spot.cover}}">
+                    <button class="btns-1" type="default" plain>申請退款</button>
+                  </navigator>
+              </block>
+
+             </view>
+          </view>
+        </view>
+      </view>
+</view>
+
+
+<loading myLoading="{{loading}}"></loading>   
+
+
+
+<!-- 支付弹窗 -->
+<!-- <view class="pay-modal" hidden="{{!showPay}}">
+  <view class="modal-bg"></view>
+  <view class="modal">
+    <view class="modal-close" bindtap="closePayModal">
+       <image src="/images/popup01.png" mode="widthFix" class="close"></image>
+    </view>
+    <view class="modal-title">
+      <text>预约时间提示</text>
+    </view>
+    <view class="modal-subtitle">
+      <text>该订单的预约时间已约满，请重新预约</text>
+    </view>
+    <view class="modal-btns">
+      <button class="btn-confirm" bindtap="confirmPay">重新预约</button>
+    </view>
+  </view>
+</view> -->
+
+<!-- 取消 -->
+<cancel-modal show="{{showCancelModal}}" bind:close="onCancelModalClose" bind:cancel="onCancelOrder"></cancel-modal>
+
+
+

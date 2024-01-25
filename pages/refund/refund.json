@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "cancel-modal":"/components/cancel-modal/cancel-modal"
+  },
+  "navigationBarTitleText": "退款申請"
+}

@@ -1,0 +1,5 @@
+<view class="startPage" wx:if="{{isTime}}">
+  <view class="startPageTime"  bindtap="switchTab">跳過{{setTime}}s</view>
+
+  <image src="{{imageSrc}}" mode="aspectFill"></image>
+</view>

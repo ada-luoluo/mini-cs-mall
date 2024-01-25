@@ -1,0 +1,101 @@
+.user-bg{
+  background: url(https://test27.chinaskynet.net/images/06.jpg) no-repeat;
+  background-size: 100%;
+}
+.user-cotent{
+  padding-top: 500rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+.user-info{
+  border-radius:10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding:30rpx;
+}
+.user-avatar{
+  width: 120rpx;
+  height: 120rpx!important;
+  border-radius: 100%;
+}
+.avatar-img{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 100%;
+}
+.user-name-1{
+  font-weight: bold;
+}
+.user-name-2{
+   font-size: 26rpx;
+   color: #707070;
+   padding-top: 10rpx;
+}
+.edit{
+  width: 160rpx; 
+}
+.edit-btn{
+  width: 160rpx!important;
+  padding:10rpx 10rpx!important;
+  font-weight: normal;
+  color: #fff;
+  font-size: 22rpx;
+  background: var(--themeColor);
+  border-radius: 50rpx;
+}
+.user-order{
+  margin-top: 20rpx;
+  background: #fff;
+  padding: 30rpx;
+  border-radius:10px;
+}
+.my-order-txt{
+  font-weight: bold;
+  font-size: 30rpx;
+}
+.order-all{
+  color: #C1C1C1; 
+}
+.user-order-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.small-arrow{
+  width: 24rpx;
+}
+.order-icon ul{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order-icon ul li{
+  width: 25%;
+  margin-top: 30rpx;
+}
+.order-icon-img{
+  width: 80rpx;
+  height: 80rpx;
+  margin: 0 auto;
+  display: block;
+}
+.order-icon-txt{
+  text-align: center;
+  display: block;
+  padding-top: 20rpx;
+  font-size: 24rpx;
+}
+
+.logout-btn{
+  width: 100%!important;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  background: var(--themeColor);
+  color: #fff;
+  font-weight: normal;
+  margin-top: 40rpx;
+  font-size: 28rpx;
+}

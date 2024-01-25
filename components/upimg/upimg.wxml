@@ -1,0 +1,17 @@
+<view class=''>
+  <view class="uploader_files">
+    <block wx:for="{{imageFile}}" wx:key="*this">
+      <view class="uploader_file" bindtap="previewImage" id="{{item.url1}}" >
+        <image class="images" src="{{item.url1}}" mode="aspectFill" />
+        <image src='/images/close-red.png' class="close" catchtap="deleteImg" data-index="{{index}}" ></image>
+      </view>
+    </block>      
+    <view class="uploadImage" hidden="{{isUploadImg}}">
+      <image class="images" src='/images/upload.png' bindtap="uploadImage"></image>
+    </view>    
+  </view>    
+  <view class="imgTips">
+    <image src="/images/preorder02.png"></image>
+    <text>最多上傳3張圖片</text>
+  </view>    
+</view>

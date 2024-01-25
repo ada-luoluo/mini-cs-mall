@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "cancel-modal":"/components/cancel-modal/cancel-modal"
+  },
+  "navigationStyle": "custom",
+  "enablePullDownRefresh":false
+}

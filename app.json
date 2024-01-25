@@ -1,0 +1,51 @@
+{
+  "pages":[   
+    "pages/startPage/startPage",
+    "pages/mall/mall",
+    "pages/user/user",
+    "pages/orderDetails/listOrder",
+    "pages/orderDetails/mallOrder",
+    "pages/orderDetails/useOrder",
+    "pages/cart/cart",
+    "pages/result/result",
+    "pages/edit/edit",
+    "pages/orders/orders",
+    "pages/writeReview/writeReview",
+    "pages/viewComments/viewComments",
+    "pages/addressList/addressList",
+    "pages/addAddress/addAddress",
+    "pages/refund/refund",
+    "pages/souvenir/souvenir",
+    "pages/goodsDetails/goodsDetails",
+    "pages/confirmOrder/confirmOrder",
+    "pages/productSearch/productSearch",
+    "pages/editAddrss/editAddrss",
+    "pages/login/login"
+  ],
+  "tabBar": {
+    "custom": true,
+    "list": [{
+      "pagePath": "pages/mall/mall"
+    },{
+      "pagePath": "pages/user/user"
+    }]   
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black",
+    "backgroundColor": "#D2D2D2"
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",  
+  "rerequiredPrivateInfos":[
+    "getLocation"
+  ],
+  "permission": {
+    "scope.userLocation": {
+        "desc": "请求获取地理信息"
+    }
+  }
+}

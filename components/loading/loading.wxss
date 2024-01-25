@@ -1,0 +1,6 @@
+
+.loading-btn{
+  font-weight: normal!important;
+  font-size: 26rpx;
+  color: #707070;
+}

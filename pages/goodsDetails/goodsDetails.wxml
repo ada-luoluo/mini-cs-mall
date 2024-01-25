@@ -1,0 +1,108 @@
+<view class="mall-banner">
+  <navigateback scrollStyle="{{scrollStyle}}"></navigateback>
+  <view class="banner-container">
+    <swiper class="banner-c" autoplay  bindchange="swiperChange">
+       <swiper-item wx:for="{{banners}}" wx:key="index">
+          <view class="banner">
+            <image src="{{item}}" class="banner-img" mode="widthFix"></image>
+          </view>
+        </swiper-item>
+    </swiper>
+    <view class="banner-index">{{current+1}}/{{banners.length}}</view>
+  </view>
+</view>
+
+<view class="goods">
+  <view class="goods-content">
+    <view class="goods-top">
+      <view class="goods-name">
+       {{name}}
+      </view>
+      <view class="goods-prince">
+        ${{defaultPrice}}<text class="unit">/{{unit}}</text>
+      </view>
+    </view>
+    <view class="goods-info"> 
+      <rich-text nodes="{{description}}"></rich-text>
+    </view> 
+  </view>
+</view>
+
+<view class="btns-container">
+
+      <view class="btns">
+        <view class="common-btn addCart" bindtap="showPopup" data-type="addCart">
+          <button>加入購物車</button>
+        </view>
+        <view class="common-btn buy"   bindtap="showPopup" data-type="buy">
+          <button>立即購買</button>
+        </view>
+      </view>
+   
+</view>
+
+<!-- 购物车 -->
+<navigator url="/pages/cart/cart">
+  <view class="cart">
+    <view class="cart-no">
+      {{cart_count}}
+    </view>
+    <image src="/images/store07.png"></image>
+  </view>
+</navigator>
+
+  <!-- 加入购物车 弹窗-->
+  <view class="popup-container" hidden="{{!showPopup}}">
+    <view class="pop"> 
+      <view class="close"  bindtap="onClose">
+        <image src="/images/popup01.png" mode="widthFix" class="close-icon"></image>
+      </view>
+      <view class="goods-s-info">
+        <image class="product-image" mode="widthFix" src="{{cover}}"></image>
+        <view>
+          <text class="product-name"> {{name}}</text>
+          <view wx:if="{{selectedSku}}">
+            <text class="product-price">${{selectedSku.price}}<text class="unit">/{{unit}}</text></text>
+          </view>
+          <view wx:else>
+            <text class="product-price">${{price}}<text class="unit">/{{unit}}</text></text>
+          </view>
+       </view>
+      </view>
+
+    <view wx:if="{{format === 2}}">
+      <view class="sku" wx:for="{{attributes}}" wx:key="product_attribute_group_id">
+        <view class="sku-title">
+          <text>{{item.name}} </text>
+        </view>
+        <view class="sku-c {{stock <= 0 ? 'out-of-stock' : ''}}">
+          <block wx:for="{{item.data}}" wx:key="product_attribute_value_id">
+            <view class="sku-li {{selectedSkuIndex[item.product_attribute_group_id] === item.product_attribute_value_id ? 'selected' : ''}}" bindtap="onSkuClick" data-group-id="{{item.product_attribute_group_id}}" data-attribute-value-id="{{item.product_attribute_value_id}}">
+              {{item.attribute_value_name}}
+                <view class="kc">
+                  无货
+                </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+
+   <view class="quantity-c">
+        <view>
+          <text class="quantity-title">数量：</text>
+        </view>
+       <view class="quantity-container">
+          <button class="quantity-btn" bindtap="onQuantityMinus">-</button>
+            <input class="quantity-input" type="number" value="{{quantity}}" bindinput="onQuantityInput"></input>
+          <button class="quantity-btn" bindtap="onQuantityPlus">+</button>
+        </view>
+    </view>
+
+
+    <view class="popup-btns">
+      <button class="confirm-btn" bindtap="onConfirm" data-type="{{type}}">{{popupBtnText}}</button>
+    </view>
+    <input type="hidden" value="{{type}}" id="popup-type" class="hidden" />
+   </view>
+  </view>

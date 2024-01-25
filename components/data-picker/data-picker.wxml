@@ -1,0 +1,12 @@
+<picker-view indicator-class="indicatorClass" mask-class="maskClass" class="view_picker" value="{{values}}" bindchange="bindChange">
+  <!-- bindpickstart="bindpickStart" -->
+  <picker-view-column class="view_picker_column">
+    <view class="view_item" wx:for="{{years}}"  wx:key="*this">{{item}}年</view>
+  </picker-view-column>
+  <picker-view-column class="view_picker_column">
+    <view class="view_item" wx:for="{{months}}" wx:key="*this">{{item}}月</view>
+  </picker-view-column>
+  <picker-view-column class="view_picker_column">
+    <view class="view_item" wx:for="{{days}}" wx:key="*this">{{item}}日</view>
+  </picker-view-column>
+</picker-view>

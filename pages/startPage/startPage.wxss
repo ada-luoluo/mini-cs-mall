@@ -1,0 +1,21 @@
+.startPage{
+  position: relative;
+}
+.startPageTime{
+  position:absolute;
+  top: 150rpx;
+  right: 20rpx;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10rpx;
+  box-sizing: border-box;
+  border-radius: 50rpx;
+  min-width: 150rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.startPage image{
+  height: 100vh;
+  width: 100vw;
+  display: block;
+}

@@ -1,0 +1,15 @@
+ <view class="goods-item {{itemNum}}">
+    <navigator url="/pages/goodsDetails/goodsDetails?id={{myItem.id}}">
+        <view class="goods-img">
+          <image src="{{myItem.cover}}" mode="widthFix" class="img"></image>
+        </view>
+        <text class="title">{{myItem.name}}</text>
+        <view class="price">
+          ${{myItem.price}}<text class="unit">/{{myItem.unit}}</text>
+        </view>
+    </navigator>
+  </view>
+
+
+
+

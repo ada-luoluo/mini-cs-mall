@@ -1,0 +1,63 @@
+.navBack{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 98;
+}
+.blackStyle{
+  color: #000000;
+}
+/**/
+.navContant>.view_item{
+  display: inline-block;
+  vertical-align: middle;
+}
+.navImg{
+  width: 26rpx;
+  height: 26rpx;  
+  transform: rotate(45deg);
+  margin-left: 2px;
+  border-width: 2px;  
+  border-left-style: solid;
+  border-bottom-style: solid;
+  margin-right: 20rpx;
+}
+.topScroll{
+  background: #F8FAFD;
+  left: 0;
+  right: 0;
+  top: 0;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-name: fadeInDown;
+}
+@keyframes fadeInDown {
+  0% {
+      opacity: 0;     
+  }
+  100% {
+      opacity: 1;
+  }
+}
+/* 默认色(白) */
+.navBack{  
+  color: #000000;
+}
+.navImg{
+  border-color: #000000;
+}
+/* 黑 */
+.blackStyle{
+  color: #000000;
+}
+.blackStyle .navImg{
+  border-color: #000000;
+}
+/*滑动*/
+.topScroll{
+  color: #000000;
+}
+.topScroll .navImg{
+  border-color: #000000;
+}

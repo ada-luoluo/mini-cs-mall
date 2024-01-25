@@ -1,0 +1,14 @@
+<view class="login">
+  <view>
+    <view class="logo">
+        <image src="/images/logo.png" mode="widthFix"></image> 
+    </view>
+    <view class="log-txt">
+      NETEGO電子產品網店
+    </view>
+    <view class="btn" bindtap="handleLogin">
+       <image src="/images/icon_01.png" mode="widthFix" ></image> 
+        <text>微信一鍵登錄</text>
+     </view>
+  </view> 
+</view>

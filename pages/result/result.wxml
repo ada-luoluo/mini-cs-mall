@@ -1,0 +1,24 @@
+<!-- 付款成功 -->
+<view wx:if="{{type === 0}}">
+  <empty bind:tapBtn="resultBtn1" images="/images/status07.png" tipText="付款成功" btnText="查看订单详情"></empty>
+</view>
+
+<!-- 支付失败 -->
+<view wx:if="{{type === 1}}">
+  <empty bind:tapBtn="resultBtn2" images="/images/status02.png" tipText="支付失败" btnText="返回订单详情"></empty>
+</view>
+
+<!-- 扫描失败 -->
+<view wx:if="{{type === 2}}">
+  <empty bind:tapBtn="resultBtn3" images="/images/status05.png" tipText="扫描失败" btnText="重新扫描"></empty>
+</view>
+
+<!-- 使用成功 -->
+<view wx:if="{{type === 3}}">
+  <empty bind:tapBtn="resultBtn4" images="/images/status06.png" tipText="使用成功" btnText="退出"></empty>
+</view>
+
+<!-- 图片上传成功 -->
+<view wx:if="{{type === 4}}">
+  <empty bind:tapBtn="resultBtn5" images="/images/status06.png" tipText="上传成功" btnText="返回订单详情"></empty>
+</view>

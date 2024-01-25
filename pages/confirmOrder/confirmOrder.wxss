@@ -1,0 +1,205 @@
+.comfirm{
+  background: var(--themeColor);
+  position: relative;
+}
+.textTabTit{
+  display: flex;
+  justify-content: center;
+  padding-top: 60rpx;
+  padding-bottom: 100rpx;
+}
+
+.express{
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2874EA;
+  padding: 20rpx 0;
+  color:#fff;
+  border-radius: 20rpx;
+  margin: 0 30rpx;
+  font-weight: bold;
+}
+.express-icon{
+   height: 60rpx;
+   margin-right: 20rpx;
+}
+
+.exrpess-way{
+  position: relative;
+  margin-top: -50rpx;
+  background-color: #fff;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  padding: 30rpx;
+}
+
+.title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.title-left{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.free{
+  background-color: #FFA858;
+  border-radius: 5rpx;
+  padding: 10rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+.take-adress{
+  padding: 30rpx;
+  margin: 30rpx 0;
+  border-radius: 20rpx;
+  background: url("https://test51.chinaskynet.net/images/store25.png") no-repeat;
+}
+
+.take-address-title{
+  color: #707070;
+  padding-bottom: 16rpx;
+}
+.take-address-txt image{
+  width:28rpx ;
+}
+.take-address-txt text{
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+.take-time-1{
+   color:#707070;
+  line-height: 50rpx;
+}
+
+.goods-info{
+  background: #fff;
+  padding: 30rpx;
+  margin-top: 20rpx;
+}
+.goods{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top:40rpx;
+}
+.goods-txt{
+  display: flex;  
+}
+.goods-img{
+  width: 145rpx;
+  border-radius: 20rpx;
+  margin-right: 20rpx;
+}
+.goods-title{
+  font-weight: bold;
+}
+
+.goods-sku{
+  color: #707070;
+  font-size: 28rpx;
+  padding: 16rpx 0;
+}
+
+.goods-price{
+   color: #FF4141;
+   font-size: 32rpx;
+   font-weight: bold;
+}
+
+.goods-no{
+  color: #707070;
+}
+.active{
+  background: #fff;
+  color: var(--themeColor);
+}
+
+.no-address{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-icon{
+  width: 100%;
+}
+.add-icon image{
+  width: 100%;
+}
+.add-btn{
+  background: var(--themeColor);
+  color: #fff;
+  font-weight: normal;
+  margin: 20rpx 0;
+}
+.default{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+}
+
+.default-right image{
+  width:36rpx;
+}
+.txt2{
+  font-size: 32rpx;
+  font-weight: bold;
+  /* padding: 16rpx 0; */
+}
+
+/* .txt3{
+  display: block;
+} */
+
+.txt1{
+  background:#FF4141;
+  color: #fff;
+  font-size: 24rpx;
+  padding: 8rpx;
+  border-radius: 5px;
+  margin-right: 10rpx;
+}
+
+.fix-bottom{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 30rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+
+.fix-bottom-c{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total-price{
+  font-size: 44rpx;
+  color:#FF4141;
+  font-weight: bold;
+}
+
+.btn button{
+background: var(--themeColor);
+font-weight: normal;
+color: #fff;
+padding: 20rpx 70rpx;
+}
+
+.default-right{
+  display: flex;
+  align-items: center;
+  justify-content:flex-end;
+}
+.txt2 {
+  padding-top: 20rpx;
+}
+

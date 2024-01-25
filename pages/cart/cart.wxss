@@ -1,0 +1,122 @@
+/* pages/cart/cart.wxss */
+.topBg{
+  background: linear-gradient(180deg, #3383FF 0%, #3283FF 10%, #F7F7F7 100%);
+  height: 500rpx;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+/*checkbox*/
+checkbox .wx-checkbox-input,.checkbox .wx-checkbox-input-disabled,.checkbox .wx-checkbox-input{
+  border-radius: 32rpx; 
+  width: 32rpx;
+  height: 32rpx;
+}
+checkbox .wx-checkbox-input {
+  border: 1px solid #9F9FA6;
+}
+checkbox  .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 32rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #3383FF;
+  border: 1px solid #3383FF;
+}
+/*checkbox样式-----END*/
+.orderMallList{
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 20rpx 24rpx;
+  box-shadow: 0 0 4px 0 #C8C8C8;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+  background: #ffffff;
+}
+.orderMallList>navigator{
+  width: 150rpx;
+}
+.orderMallList>navigator image{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 20rpx;
+}
+.orderMallList>view{
+  width: calc(100% - 200rpx);
+  padding-left: 15rpx;
+  font-size: 28rpx;
+}
+.orderMallList .desc{
+  font-size: 22rpx;
+  color: #898989;
+  
+  padding: 5rpx ;
+ 
+  margin-top: 5rpx;
+}
+.orderMallList .tolal{
+  font-size: 24rpx;
+  color: #707070;
+  max-width: 60%;
+}
+.orderMallList .tolal>text{
+  font-size: 36rpx;
+  color: #FF4141;
+  font-weight: bold;
+  padding-right: 10rpx;
+}
+.cartNumber{
+  margin-top: 10rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.cartNumber .numbers{
+  border: 1rpx solid #C8C8C8;
+  border-radius: 8rpx;
+  /* width: 40%; */
+}
+.cartNumber .numbers>text,.cartNumber .numbers>input{
+  display: inline-block;
+  vertical-align: middle;  
+  text-align: center;
+}
+.cartNumber .numbers>text{
+  color: #C4C4C4;
+  width: 50rpx;
+}
+.cartNumber .numbers>input{
+  color: #676767;
+  width: 40rpx;
+  position: relative;
+  z-index: 0;
+}
+/**/
+.listTextBtn{
+  display: flex;
+  align-items: center;
+}
+.listTextBtn>view{
+  width: 20%;
+}
+.listTextBtn>text{
+  width: 40%;
+  font-size: 44rpx;
+  color: #FF3939;
+}
+.listTextBtn button{
+  width: 40%!important;
+}
+
+.cartHeight{
+  height: 100rpx;
+  width: 100%;
+}

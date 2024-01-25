@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+   "goods-item":"/components/goods-item/goods-item"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh":false
+}

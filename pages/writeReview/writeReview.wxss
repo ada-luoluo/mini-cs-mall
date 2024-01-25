@@ -1,0 +1,108 @@
+.comments{
+  padding: 0 30rpx;
+}
+
+.comments-c{
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 20rpx;
+}
+
+.comments-title{
+  display: block;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.stars{
+  padding: 20rpx 0;
+}
+.star{
+   width: 60rpx;
+   margin-right:20rpx;
+}
+
+.comments-bg{
+  background: #F8F8F8;
+  padding: 20rpx;
+  margin-top: 10rpx;
+  border-radius: 20rpx;
+}
+
+.uploadImgs{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.uploadImgs-ul-li{
+  position: relative;
+  display: inline-table;
+}
+
+.uploadImgs-li{
+  width: 152rpx;
+  border-radius: 20rpx;
+  margin: 0 20rpx 10rpx 0;
+}
+
+.close{
+  position:absolute;
+  right: 10rpx;
+  top: 0;
+}
+
+.close-icon{
+   width: 40rpx;
+}
+.uploadIcon{
+  width: 152rpx;
+  height: 152rpx; 
+}
+
+textarea {
+  height: 180rpx;
+  margin-bottom: 20rpx;
+}
+
+.submit-btn{
+ width: 100%; 
+  padding-top: 20rpx;
+ padding-bottom: 20rpx;
+ background-color: var(--themeColor);
+ border-radius: 10rpx;
+ color: #fff;
+ font-weight: normal;
+}
+
+
+.order-info{
+  padding: 30rpx;
+}
+.order-content{
+  display: flex;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  background-color:#fff;
+}
+
+.order-img{
+  width: 123px;
+  border-radius: 20rpx;
+  margin-right: 20rpx;
+}
+.text1{
+  display: block;
+  font-weight: bold;
+}
+.text2{
+  display: block;
+  color: #707070;
+  padding-top: 10rpx;
+}
+.text3{
+  color: #FF4141;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding-top: 40rpx;
+  display: block;
+}

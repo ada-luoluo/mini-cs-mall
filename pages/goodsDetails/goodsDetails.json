@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "navigateback":"/components/navigateback/navigateback"
+  },
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "custom",
+  "backgroundColor": "#3383FF"
+}

@@ -1,0 +1,17 @@
+var filters = {    
+  // 此处2为保留两位小数
+  toFix: function (value) {       
+    return value.toFixed(2)    
+  },
+  // 整除
+  toInt:function(value){
+    return parseInt(value)
+  },
+  // 截取评价日期
+  getDate: function(value){
+    var a = value.indexOf(" ")
+    return value.substring(0,a)
+  }  
+}
+
+module.exports = filters

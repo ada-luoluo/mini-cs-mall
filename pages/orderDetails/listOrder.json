@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "navigateback": "/components/navigateback/navigateback",
+    "cancel-modal":"/components/cancel-modal/cancel-modal",
+    "upimg":"/components/upimg/upimg"
+  },
+  "navigationStyle":"custom"
+}

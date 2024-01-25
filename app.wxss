@@ -1,0 +1,279 @@
+/* 标签初始化 */
+page, view, image, text, navigator, swiper, swiper-item {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+page{
+   --themeColor: #3383FF;
+   font-size: 28rpx;
+   background: #f7f7f7;
+}
+button:not([size=mini]) {
+  width: inherit!important;
+}
+
+.unit{
+  font-size: 24rpx;
+  color: #707070;
+  padding-left: 10rpx;
+  font-weight: normal;
+  /* display: none; */
+}
+
+.btn-bg{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30rpx 30rpx 80rpx 30rpx;
+  background-color: #fff;
+  width: 100%;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+
+.navigator-hover {
+	background-color: transparent !important;
+	opacity: 1;
+}
+ 
+navigator.navigator-hover {
+	background-color: transparent !important;
+	opacity: 1;
+}
+
+/* 右下角购物车 */
+.cart{
+  width: 80rpx;
+ height: 80rpx;
+ border-radius: 100%;
+ background: #fff;
+  position:fixed;
+  right: 20rpx;
+  bottom: 240rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6rpx 12rpx rgb(202, 202, 202);
+}
+
+.cart image{
+   width: 44rpx;
+   height: 44rpx;
+    position: relative;
+}
+
+.cart-no{
+  position: absolute;
+  top: 0;
+  right: 10rpx;
+  background: #FF3939;
+  color: #fff;
+   z-index: 9999;
+  border-radius: 100%;
+  font-size: 24rpx;
+   width: 32rpx;
+   height: 32rpx;
+   text-align: center;
+}
+
+.no-data{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.no-data image{
+  width: 60%;
+}
+
+.no-data text{
+  font-size: 26rpx;
+  color: #707070;
+}
+
+
+
+/*----Bell----------*/
+/*景点列表 - list */
+.swiperItem{
+  background: #ffffff;
+  display: flex;
+  padding: 24rpx;
+  border-radius: 30rpx;
+  margin-top: 30rpx;
+  align-items: center;
+  box-shadow: 1px 1px 5px 0 #C8C8C8;
+}
+.swiperItem .images{
+  width:  240rpx;
+  height: 180rpx;
+}
+.swiperItem .contant{
+  position: relative;
+  padding-left: 20rpx;
+  width: calc(100% - 240rpx);
+}
+.swiperItem .contant>image{
+  width: 56rpx;
+  height: 56rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.swiperItem  .title{
+  font-size: 28rpx;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 70%; 
+}
+.swiperItem .desc{
+  font-size: 24rpx;
+  color: #707070;
+  padding: 8rpx 0 20rpx;
+}
+.swiperItem .desc text{
+  color: #3383FF;
+}
+.swiperItem .buttons{
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+.swiperItem .buttons text{
+  color: #FF4141;
+  font-size: 30rpx;
+}
+.swiperItem .buttons{
+  font-size: 24rpx;
+  color: #707070;
+}
+.swiperItem .buttons button{
+  background: #3383FF;
+  color: #ffffff;
+  font-size: 24rpx;
+  padding: 15rpx 10rpx;
+  border-radius: 10rpx;
+  margin: 0;
+}
+/*无更多数据*/
+.nodata{
+  text-align: center;
+  color: #999999;
+  margin-top: 30rpx;
+  position: relative;
+  font-size: 28rpx;
+}
+.nodata::after,.nodata::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  width: 25vw;
+  background-color: #C8C8C8;
+}
+.nodata::after{
+  left: 10vw;
+}
+.nodata::before{
+  right: 10vw;
+}
+/*button*/
+.Btn{
+  background: #3383FF;
+  color: #ffffff;
+  font-weight: inherit;
+  margin: 0!important;
+}
+.bottomBtnRadius{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background: #ffffff;
+  padding: 30rpx;
+  border-top-left-radius: 50rpx;
+  border-top-right-radius: 50rpx;
+}
+.contantDiv{
+  padding: 40rpx 30rpx;  
+}
+.imageBg{
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: -1;
+}
+.heightDiv{
+  height: 150rpx;
+  width: 100%;
+}
+/*模态框*/
+.modalBox{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 5;
+}
+.modalContant{
+  background: linear-gradient(180deg, #E5EFFF 0%, #F4F4F4 100%);
+  padding: 30rpx;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0; 
+  border-top-left-radius: 50rpx;
+  border-top-right-radius: 50rpx; 
+}
+.modalContant>.title{
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  position: relative;
+  min-height: 20rpx;
+}
+.modalContant>.title>image{
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.modalContant>button{
+  width: 100%!important;
+}
+.modalContantText{
+  padding-bottom: 80rpx;
+}
+.show {  
+  animation: slidein 0.5s;
+}
+@keyframes slidein {
+  from {
+    transform: translateY(70%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.hide {  
+  animation: slidedown 0.5s;
+}
+@keyframes slidedown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+/*-Bell--END--------------*/
+

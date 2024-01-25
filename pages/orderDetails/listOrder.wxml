@@ -1,0 +1,212 @@
+<view>
+  <navigateback title="订单详情" classHeight="{{false}}" scrollStyle="{{scrollStyle}}"/>
+  
+  <view class="contantDiv">
+    <!-- 待付款 -->
+    <view class="orderTypeText" wx:if="{{orderState === 1}}">
+      <image src="/images/order04.png" class="imageBg" mode="widthFix" ></image>  
+      <text>待付款...</text>
+      <view>请在30分钟付款，之后订单将自动取消</view>
+    </view>
+
+    <!-- 已支付 / 待使用 -->
+    <view wx:if="{{orderState === 3 || orderState === 4}}">
+      <!-- 上传图片须知 -->
+      <view class="orderTypeText" wx:if="{{initData.is_signed === 0}}">
+        <image src="/images/order04.png" class="imageBg" mode="widthFix" ></image>
+        <text>上传飞行科普体验须知图片</text>
+        <view>感谢您选择我们的飞行科普体验服务，欢迎您下次预订</view>
+      </view>   
+      <!-- 待完成 -->
+      <view class="orderTypeText" wx:else>
+        <image src="/images/order20.png" class="imageBg" mode="widthFix" ></image>  
+        <text>待完成</text>
+        <view>感谢您购买飞行科普体验服务，您可去线下进行飞行科普体验</view>
+      </view>
+    </view>
+
+    <!-- 已使用 /  已评价 --->    
+    <view class="orderTypeText" wx:if="{{orderState === 5 || orderState === 6}}">
+      <image src="/images/order21.png" class="imageBg" mode="widthFix" ></image>  
+      <text>已完成</text>
+      <view>感谢您订购飞行科普体验服务，祝您生活愉快</view>
+    </view>  
+
+    <!-- 已退款 -->
+    <view class="orderTypeText" wx:if="{{orderState === 2}}">
+      <image src="/images/order22.png" class="imageBg" mode="widthFix" ></image>
+      <text>退款完成</text>
+      <view>您的订单已退款，欢迎您下次预订</view>
+    </view>
+
+    <!-- 已取消 -->
+    <view class="orderTypeText" wx:if="{{orderState === 0}}">
+      <image src="/images/order22.png" class="imageBg" mode="widthFix" ></image>
+      <text>订单已取消</text>
+    </view>
+
+    <!-- 退款申请中 -->
+    <view class="orderTypeText" wx:if="{{orderState === 7}}">
+      <image src="/images/order22.png" class="imageBg" mode="widthFix" ></image>
+      <text>退款申请中</text>
+    </view>
+
+    <!-- 退款拒绝 -->
+    <view class="orderTypeText" wx:if="{{orderState === 8}}">
+      <image src="/images/order22.png" class="imageBg" mode="widthFix" ></image>
+      <text>退款申请未通过</text>
+    </view>
+
+
+
+    <!-- 订单号 -->
+    <view class="orderBackgrund">
+      <view class="title">订单号：{{initData.no}}</view>
+      <view class="texts">
+        <view class="orderNumber" bindtap="openSpot">
+          <text>飞行科普体验景点</text>
+          <view class="text"><image src="/images/address.png"></image>{{initData.tourist_spot.name}}</view>
+        </view>
+        <view class="qrCodeImg" wx-if="{{orderState === 4  && initData.is_signed ===1}}">
+          <image src="{{initData.qr_code}}"></image>
+          <view>飞行科普体验码</view>
+        </view>
+      </view>   
+    </view>
+    <!-- 详细信息 -->
+    <view class="orderBackgrund">
+      <view class="title">详细信息</view>
+      <view class="texts">
+        <view class="orderFlexText">
+          <view class="item">
+            <text>下单时间</text><text>{{initData.created_at}}</text>
+          </view>
+          <view class="item">
+            <text>飞行科普体验日期</text><text>{{initData.flight_at}}</text>
+          </view>
+          <view class="item">
+            <text>飞行科普体验时间</text><text>{{initData.flight_period}}</text>
+          </view>
+          <view class="item">
+            <text>飞行科普体验公里数</text><text>{{initData.flight_name}}</text>
+          </view>
+          <view class="item" wx:if="{{initData.video_price != 0}}">
+            <text>购买纪念视频</text><text>￥{{initData.video_price}}</text>
+          </view>
+          <view class="item">
+            <text>实付</text><text class="number">￥{{initData.amount}}</text>
+          </view>        
+        </view>
+      </view>   
+    </view>
+    <!-- 登记信息 -->
+    <view class="orderBackgrund" wx:if="{{initData.passenger.passenger_name !== ''}}">
+      <view class="title">登记信息</view>
+      <view class="texts">
+        <view class="orderFlexText">
+          <view class="item">
+            <text>乘客</text><text>{{initData.passenger.passenger_name}}</text>
+          </view>
+          <view class="item">
+            <text>身份证</text><text>{{initData.passenger.passenger_no}}</text>
+          </view>
+          <!-- 被监护人 -->
+          <view wx:if="{{initData.passenger.type != 1}}">
+            <view class="item">
+              <text>乘客</text><text>{{initData.passenger.child_name}}</text>
+            </view>
+            <view class="item">
+              <text>身份证</text><text>{{initData.passenger.child_no}}</text>
+            </view>
+          </view>          
+          <view class="item">
+            <text>电话</text><text>{{initData.passenger.passenger_phone}}</text>
+          </view>
+          <view class="item">
+            <text>日期</text><text>{{initData.flight_at}}</text>
+          </view>             
+        </view>
+      </view>   
+    </view>
+    <!-- 飞行科普体验须知图片 -->
+    <view class="orderBackgrund" wx:if="{{initData.passenger.passenger_name == ''}}">
+      <!-- orderState !== 1 && -->
+      <block wx:if="{{initData.is_signed === 0 }}">
+        <block wx:if="{{orderState === 3 || orderState === 4}}">
+          <view class="title">飞行科普体验须知图片</view>
+          <view class="texts">
+            <!-- 上传 -->
+            <view>
+              <upimg bind:myevent="onMyEvent"></upimg> 
+            </view>                      
+          </view>
+        </block>       
+      </block>
+      <block wx:else>
+        <view class="title">飞行科普体验须知图片</view>
+        <view class="texts">          
+          <!-- 显示 -->
+          <view class="uploader_files">
+            <block wx:for="{{initData.passenger.images}}" wx:key="*this">
+              <view class="uploader_file" bindtap="previewImage" id="{{item}}" >
+                <image class="images" src="{{item}}" mode="aspectFill" />
+              </view>
+            </block>  
+          </view>                
+        </view> 
+      </block>
+        
+    </view>
+    <!-- 占位 -->
+    <view class="heightDiv"></view>
+
+  </view>
+  <view class="orderBottom" wx:if="{{orderState !== 7}}">
+      
+    <!-- 待付款 -->
+    <view class="payBtn" wx:if="{{orderState === 1}}">     
+      <button class="payBtns BtnBorder" bindtap="cancelBtn">取消订单</button>
+      <button class="payBtns Btn" bindtap="buyBtn">立即购买</button>
+    </view>
+
+    <!-- 待完成 -->
+    <view wx:if="{{orderState === 3 || orderState === 4}}">  
+      <view wx:if="{{initData.is_signed === 0}}">
+        <!-- 上传图片须知 -->
+        <button class="Btn" bindtap="submitBtn">提交</button>
+      </view>   
+      <navigator url="/pages/refund/refund?order_id={{id}}" wx:else>
+        <button class="BtnBorder">申请退款</button>
+      </navigator>
+    </view>    
+
+    <!-- 已完成 -->
+    <navigator  wx:if="{{orderState === 5}}" url="/pages/writeReview/writeReview?order_id={{id}}">
+      <button class="Btn">去评价</button>
+    </navigator>
+
+    <view class="payBtn" wx:if="{{orderState === 6}}">     
+      <button class="payBtns BtnBorder" bindtap="deleteBtn">删除订单</button>
+      <navigator class="payBtns" url="/pages/viewComments/viewComments?order_id={{id}}">
+        <button class="Btn">查看评价</button>
+      </navigator>
+    </view>    
+
+    <!-- 删除订单 -->
+    <button class="BtnBorder" bindtap="deleteBtn" wx:if="{{orderState === 0  || orderState === 2}}">删除订单</button>
+
+    <!-- 再次退款 -->
+    <view wx:if="{{orderState === 8}}">
+      <navigator url="/pages/refund/refund?order_id={{id}}" >
+        <button class="BtnBorder">申请退款</button>
+      </navigator>
+    </view>
+    
+  </view>
+
+</view>
+
+<!-- 弹窗 -->
+<cancel-modal show="{{showCancelModal}}" title="{{titleModal}}" 
+  subtitle="{{subtitleModal}}" confirmText="{{confirmTextModal}}" classBtn="{{classBtnModal}}"
+  bind:cancel="onCancelOrder"></cancel-modal>

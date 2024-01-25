@@ -1,0 +1,11 @@
+diff a/app.json b/app.json	(rejected hunks)
+@@ -9,7 +9,8 @@
+     "pages/listForm/listForm",
+     "pages/listSearch/listSearch",
+     "pages/notice/notice",
+-    "pages/orderDetails/orderDetails",
++    "pages/orderDetails/listOrder",
++    "pages/orderDetails/mallOrder",
+     "pages/edit/edit",
+     "pages/orders/orders",
+     "pages/writeReview/writeReview",

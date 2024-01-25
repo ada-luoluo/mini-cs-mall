@@ -1,0 +1,80 @@
+<view class="user-bg">
+    <!--  -->
+      <view class="user-cotent">
+        <view class="user-info">
+          <view class="user-avatar">
+            <image src="{{avatar}}" class="avatar-img"></image>
+          </view>
+          <view class="user-name">
+            <view class="user-name-1">{{name}}</view>
+            <view class="user-name-2">會員 {{no}}</view>
+            <view style="color: #999;font-size: 24rpx;padding-top: 10rpx;">版本號：1.0.0</view>
+          </view>
+          <view class="edit">
+            <navigator url="/pages/edit/edit?name={{name}}&avatar={{avatar}}&gender={{gender}}&birthday={{birthday}}">
+              <button class="edit-btn">編輯資料</button>
+            </navigator>
+           </view>
+        </view>      
+    <!--  -->
+      <view class="user-order">
+        <view class="user-order-top">
+          <text class="my-order-txt">我的訂單</text>
+          <navigator url="/pages/orders/orders?order_status=0">
+              <view class="order-all">
+              全部 <image src="/images/my03.png" mode="widthFix" class="small-arrow"></image>
+            </view>
+          </navigator>
+        </view>
+        <view class="order-icon">
+          <ul>
+          <li>
+            <navigator url="/pages/orders/orders?order_status=1">
+              <image src="/images/my04.png"  mode="widthFix" class="order-icon-img"></image>
+              <text class="order-icon-txt">待付款</text>
+            </navigator> 
+          </li>
+          <li>
+            <navigator url="/pages/orders/orders?order_status=2">
+              <image src="/images/my05.png"  mode="widthFix" class="order-icon-img"></image>
+              <text class="order-icon-txt">待完成</text>
+            </navigator>
+          </li>
+          <li>
+            <navigator url="/pages/orders/orders?order_status=3">
+              <image src="/images/my06.png"  mode="widthFix" class="order-icon-img"></image>
+              <text class="order-icon-txt">已完成</text>
+            </navigator>
+          </li>
+          <li>
+            <navigator url="/pages/orders/orders?order_status=4">
+              <image src="/images/my07.png"  mode="widthFix" class="order-icon-img"></image>
+              <text class="order-icon-txt">退款</text>
+            </navigator>
+          </li>
+          </ul>
+        </view>
+      </view>
+      <!--  -->
+      <view class="user-order">
+      <navigator url="/pages/addressList/addressList">
+        <view class="user-order-top">
+          <text class="my-order-txt">我的地址</text>
+          <view class="order-all">
+            <image src="/images/my03.png" mode="widthFix" class="small-arrow"></image>
+          </view>
+        </view>
+      </navigator>
+      </view>
+      <!--  -->
+      <view class="logout">
+        <button class="logout-btn" bindtap="showCancelModal">
+          退出登錄
+        </button>
+      </view>
+      <view class="heightDiv"> </view>
+    </view>
+</view>
+
+<!-- 退出弹窗 -->
+<cancel-modal show="{{showCancelModal}}" title="退出登錄" subtitle="是否確認退出登錄？" bind:close="onCancelModalClose" bind:cancel="onCancelOrder"></cancel-modal>

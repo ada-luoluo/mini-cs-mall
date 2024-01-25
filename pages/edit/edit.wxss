@@ -1,0 +1,54 @@
+page{
+  background: #fff;
+}
+.upload-img{
+ display: flex;
+ justify-content: center;
+}
+.avatar{
+  margin: 40rpx 0;
+  position: relative;
+  width: 200rpx; 
+}
+.avatar-img{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100%;
+}
+
+.camera{
+  width: 80rpx;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.edit{
+  padding: 40rpx;
+}
+.edit-content{
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+   width:100% ;
+}
+.edit-content-lable{
+  width: 80rpx;
+}
+.small-arrow{
+  width: 24rpx;
+}
+.change-content{
+  width: calc(100% - 104rpx);
+}
+.save{
+  margin-top: 30rpx;
+}
+.save-btn{
+  width: 100%!important;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  font-weight: normal;
+  background: var(--themeColor);
+  color: #fff;
+}

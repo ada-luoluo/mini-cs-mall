@@ -1,0 +1,103 @@
+<view class="{{ type === '2' ? 'bg bg-type2' : (type === '' ? 'bg bg-1' : 'bg') }}">
+   <view wx:if="{{ type !== '' }}" class="have-type">
+      <view class="search">
+        <navigator url="/pages/productSearch/productSearch?type={{type}}">
+          <view class="searchDiv">
+            <image class="image1" src="/images/home03.png"></image>
+            <input class="inputs" value="{{inputValue}}" 
+            bindconfirm="confirmInput" placeholder="搜索商品" confirm-type="search" />
+          </view>
+        </navigator>
+      </view>
+      <view wx:if="{{ type === '1' }}" class="mall-txt">
+        <text class="title1">硬件專區</text>
+        <text class="title2">hardware</text>
+      </view>
+      <view wx:else class="mall-txt">
+        <text class="title1">其他</text>
+        <text class="title2">other</text>
+      </view>
+    </view>
+    <!-- 从商城首页搜索无type -->
+    <view wx:else class="no-type">
+      <view style="height: 200rpx;"></view>
+    </view>
+</view>
+
+<view class="p-bg">
+  <view wx:if="{{ categories.length > 0 }}">
+
+    <!-- 分类 -->
+    <scroll-view class="category-list" scroll-x="true" scroll-y="false">
+    <block wx:for="{{categories}}" wx:key="id" data-index="{{index}}">
+      <view class="category-item" bindtap="onCategoryTap" data-id="{{item.id}}">
+        <text class="category-name {{item.open ? 'active' : ''}}">{{item.name}}</text>
+      </view>
+    </block>
+  </scroll-view>
+
+  <block wx:for="{{categories}}" wx:key="id" data-index="{{index}}">
+    <view class="subcategory-list {{item.open ? 'open' : ''}}">
+      <block wx:for="{{item.sub_categories}}" wx:key="id">
+        <view class="subcategory-item  {{item.active ? 'sub-active' : ''}}" bindtap="toggleActive" data-id="{{item.id}}">
+          <text class="subcategory-name">{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+  </block>
+
+    <!-- 全部分类 -->
+      <view class="all-cate-icon" bindtap="toggleAllCate">
+        <image src="/images/store10.png" mode="widthFix" class="icon-img"></image>
+      </view>
+      <view class="all-cate" hidden="{{!showAllCate}}">
+        <scroll-view scroll-y="true" class="all-height">
+          <block wx:for="{{categories}}" wx:key="id">
+            <view class="all-cate-category-item">
+              <text class="all-cate-category-name" bindtap="onCategoryTap" data-id="{{item.id}}" data-area="otheroOne">{{item.name}}</text>
+              <block wx:if="{{item.sub_categories.length > 0}}">
+                <view class="all-cate-subcategory-list">
+                  <block wx:for="{{item.sub_categories}}" wx:key="id">
+                    <view class="all-cate-subcategory-item" data-id="{{item.id}}" bindtap="toggleActive"  data-area="otherarea" >
+                      <text class="all-cate-subcategory-name {{item.active ? 'active' : ''}}">{{item.name}}</text>
+                    </view>
+                  </block>
+                </view>
+              </block>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+  </view>
+
+  <!-- 产品列表 -->
+  <block wx:if="{{products.length > 0}}">
+    <view class="products">
+      <view wx:for="{{products}}" wx:key="index" class="products-li">
+      <goods-item myItem="{{item}}" itemNum="itemNum2"></goods-item>
+      </view>
+    </view>
+      <!-- 加载... -->
+     <loading myLoading="{{loading}}"></loading>   
+  </block>
+  <view wx:else class="no-data">
+      <image src="/images/status03.png" mode="widthFix"></image>
+      <text>暫無商品</text> 
+  </view>
+
+</view>
+
+
+<view wx:if="{{ type === '1' }}">
+  <!-- 购物车 -->
+  <navigator url="/pages/cart/cart">
+  <view class="cart">
+    <view class="cart-no">
+      {{cart_count}}
+    </view>
+    <image src="/images/store07.png"></image>
+  </view>
+</navigator>
+</view>
+
+

@@ -1,0 +1,66 @@
+<view>
+  <view class="top"></view>
+
+<!-- 地址列表 -->
+ <view  wx:if="{{addressList.length > 0}}">
+      <view class="all-adress" style="padding-top: 0px;">
+        <scroll-view scroll-y="true" style="height: {{minHeight}}px;">
+        <view class="container" wx:for="{{addressList}}" wx:key="id" >
+          <movable-area>
+            <movable-view direction="horizontal" out-of-bounds="{{true}}" friction="150" x="{{x}}"
+              bindtouchstart="handleTouchStart" bindtouchend="handleTouchEnd" >
+                <view class="card-container">
+                  <view class="address-txt">
+                  <view bindtap="changeAddress" data-id="{{item.id}}">
+                    <view class="address-1">
+                    <text wx:if="{{item.is_default}}" class="default">默認</text>
+                    {{item.province_name}}{{item.city_name}}{{item.county_name}}</view>
+                    <view class="address-2">{{item.address}}</view>
+                    <view class="address-3">{{item.receiver_name}} <text class="phone">{{item.phone}}</text></view>
+                  </view>
+                  <view class="edit">
+                    <navigator url="/pages/editAddrss/editAddrss?address_id={{item.id}}&receiver_name={{item.receiver_name}}&phone={{item.phone}}&province_id={{item.province_id}}&city_id={{item.city_id}}&county_id={{item.county_id}}&address={{item.address}}&is_default={{item.county_id}}&province_name={{item.province_name}}&city_name={{item.city_name}}&county_name={{item.county_name}}&is_default={{item.is_default}}">
+                      <image src="/images/order24.png" class="edit-icon" mode="widthFix"></image>
+                    </navigator>
+                  </view>
+                </view>
+                <view class="show-operations" catchtouchstart="toggle" catchtouchend="emptyFunc"></view>
+              </view>
+            </movable-view>
+          </movable-area>
+          <view class="operations-content" >
+            <view class="operation-button" bindtap="onDeleteAddress" data-id="{{item.id}}" >
+              <text class="delete-text">刪除</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view> 
+      </view>
+
+      <view class="heightDiv"></view>
+      <view class="btn-bg">
+        <view class="bottom-btn">
+            <navigator url="/pages/addAddress/addAddress">
+              <button class="add-btn">添加地址</button>
+            </navigator>
+        </view>
+      </view>
+ </view> 
+ 
+  <!-- 地址为空 -->
+  <view  wx:else>
+      <view class="empty">
+      <view class="empty-bg">
+        <view class="empty-img">
+          <image src="/images/status04.png" mode="widthFix" class="no-img"></image>
+        </view>
+        <view>
+          <navigator url="/pages/addAddress/addAddress">
+              <button class="add-btn">添加地址</button>
+            </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+ </view>

@@ -1,0 +1,18 @@
+<view class="cancel-modal {{show?'showModal':''}}" hidden="{{!show}}">
+  <view class="modal-bg"></view>
+  <view class="modal">
+    <view class="modal-close" bindtap="closeCancelModal">
+      <image src="/images/popup01.png" mode="widthFix" class="close"></image>
+    </view>
+    <view class="modal-title">
+      <text>{{title}}</text>
+    </view>
+    <view class="modal-subtitle">
+      <text>{{subtitle}}</text>
+    </view>
+    <view class="modal-btns {{classBtn}}">
+      <button class="btn-cancel" bindtap="closeCancelModal" plain>{{cancelText}}</button>
+      <button class="btn-confirm" bindtap="confirm">{{confirmText}}</button>
+    </view>
+  </view>
+</view>

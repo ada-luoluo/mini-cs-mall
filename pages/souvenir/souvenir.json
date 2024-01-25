@@ -1,0 +1,9 @@
+{
+  "usingComponents": {  
+   "goods-item":"/components/goods-item/goods-item",
+   "loading":"/components/loading/loading"
+  },
+  "navigationBarTitleText": "",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh":true
+}

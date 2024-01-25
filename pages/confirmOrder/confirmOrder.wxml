@@ -1,0 +1,139 @@
+<view class="comfirm">   
+   <view class="textTabTit">
+      <view bindtap="changeTab" id="1" class="express {{titTabId === 1 ? 'active' : ''}}">
+        <image src="https://test51.chinaskynet.net/images/store23.png" mode="heightFix" class="express-icon"></image>
+        現場自取
+      </view>
+      <view bindtap="changeTab" id="2" class="express {{titTabId === 2 ? 'active' : ''}}">
+        <image src="https://test51.chinaskynet.net/images/store24.png" mode="heightFix" class="express-icon"></image>
+       快遞郵寄
+      </view>
+ </view>
+</view>
+
+<view class="exrpess-way">
+  <view hidden="{{titTabId!==1}}" class="way-1">
+    <view class="title">
+      <text class="title-left">取貨信息</text>
+    </view>
+    <view class="take-adress">
+      <view class="take-address-title">
+        取貨地點
+      </view>
+      <view class="take-address-txt">
+        <image src="/images/address.png" mode="widthFix"></image>
+        <text>{{pickupInfo.pickup_address}}</text>
+      </view>
+    </view>
+    <view class="take-time">
+      <view>
+        <text class="take-time-1">取貨時間：</text>
+        <text>{{pickupInfo.service_time}}</text>
+      </view>
+      <view>
+        <text class="take-time-1">聯繫電話：</text>
+        <text>{{pickupInfo.contact_phone}}</text>
+      </view>
+    </view>
+  </view>
+    
+  <view hidden="{{titTabId!==2}}" class="way-2">
+    <view class="title">
+      <text class="title-left">地址信息</text>
+      <view class="free">
+        包郵
+      </view>
+    </view> 
+
+
+    <!--  无地址 -->
+    <block wx:if="{{defaultAddress.length === 0}}">
+        <view class="no-address">
+          <view>
+            <view class="add-icon">
+              <image src="/images/status04.png" mode="widthFix"></image>
+            </view>
+            <view>
+            <navigator url="/pages/addAddress/addAddress?fromConfirmOrder=true">
+              <button class="add-btn">添加地址</button>
+            </navigator>
+            </view>
+          </view>
+        </view>
+    </block>
+
+     <!-- 有地址 -->
+    <block wx:else>
+      <navigator url="/pages/addressList/addressList">
+          <view class="default">
+            <view class="default-left">
+                <view>
+                  <text wx:if="{{defaultAddress.is_default}}" class="txt1">默認</text>
+                  <text>{{defaultAddress.province_name}}{{defaultAddress.city_name}}{{defaultAddress.county_name}}</text>
+                </view>
+                <view class="txt2 txt3">
+                  {{defaultAddress.address}}
+                </view>
+                <text class="txt3">{{defaultAddress.receiver_name}}  {{defaultAddress.phone}}</text>
+            </view>
+            <view class="default-right">
+              <image src="/images/my03.png" mode="widthFix"></image>
+            </view>  
+        </view>
+        </navigator>
+    </block>
+
+
+ </view>
+</view>
+
+<view class="goods-info">
+  <view class="title">
+      <text class="title-left">商品信息</text>
+  </view>
+
+  <view class="goods" wx:for="{{products}}" wx:key="index">
+     <view class="goods-txt">
+       <image src="{{item.cover}}" mode="widthFix" class="goods-img"></image>
+       <view>
+         <view class="goods-title">
+          {{item.name}}
+         </view>
+
+
+         <view wx:for="{{item.product_skus.product_sku_attribute_related}}" wx:key="product_sku_id">
+                    <view class="desc">
+                      {{item.product_attribute_group_name}} : {{item.product_attribute_value_name}}
+                    </view>
+              </view>
+
+          <!-- <view wx:if="{{item.product_skus.length !== 0}}" class="goods-sku">
+              <view class="desc" wx:for="{{skuList}}" wx:key="skuId">
+                {{item.name}} : {{item.value}}
+              </view>     
+           </view> -->
+          <view class="goods-price">
+            ￥{{item.price}}   
+            <text class="unit">/{{item.unit}}</text>
+          </view>
+       </view>
+     </view>
+     <view class="goods-no">
+      x{{item.num}} 
+     </view>
+  </view>
+
+</view>
+
+<view class="heightDiv"></view>  
+
+<view class="fix-bottom">
+     <view class="fix-bottom-c">
+       <view class="total-price">
+        ￥{{totalPrice}}
+       </view>
+       <view class="btn">
+        <button bindtap="OnPay">立即付款</button> 
+       </view>
+     </view>
+</view>

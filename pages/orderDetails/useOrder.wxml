@@ -1,0 +1,148 @@
+<view>
+  <image src="/images/order23.png" class="imageBg" mode="widthFix" ></image>  
+  <view class="contantDiv">
+    <!-- 订单号 -->
+    <view class="orderBackgrund">
+      <view class="title">订单号：{{initData.no}}</view>
+      <view class="texts">
+        <view class="orderNumber" wx:if="{{initData.order_type === 1}}">
+          <text>飞行科普体验景点</text>
+          <view class="text"><image src="/images/address.png"></image>{{initData.tourist_spot.name}}</view>
+        </view>
+        <view class="" wx:else>
+          <block wx:for="{{initData.products}}" wx:key="index">
+            <!-- item -->
+            <view class="orderMallList">
+              <image src="{{item.cover}}"></image>
+              <view class="p-content">
+               <view>
+                  <view>{{item.name}}</view>
+                  <view wx:for="{{item.product_skus}}" wx:key="product_sku_id">
+                    <view class="desc">
+                      {{item.product_attribute_group_name}} : {{item.product_attribute_value_name}}
+                    </view>
+                  </view>
+                  <view class="tolal"><text>{{item.price}}</text>/{{item.unit}}</view>
+               </view>
+                <view class="p-num">
+                  x{{item.num}}
+                </view>
+              </view>             
+            </view>
+          </block>         
+        </view>
+      </view>   
+    </view>    
+    <!-- 景点 -->
+    <view wx:if="{{initData.order_type === 1}}">
+      <!--  -->
+      <view class="orderBackgrund">
+        <view class="title">详细信息</view>
+        <view class="texts">
+          <view class="orderFlexText">
+            <view class="item">
+              <text>下单时间</text><text>{{initData.created_at}}</text>
+            </view>
+            <view class="item">
+              <text>飞行科普体验日期</text><text>{{initData.flight_at}}</text>
+            </view>
+            <view class="item">
+              <text>飞行科普体验时间</text><text>{{initData.flight_period}}</text>
+            </view>
+            <view class="item">
+              <text>飞行科普体验公里数</text><text>{{initData.flight_name}}</text>
+            </view>
+            <view class="item" wx:if="{{initData.video_price != 0}}">
+              <text>购买纪念视频</text><text>￥{{initData.video_price}}</text>
+            </view>
+            <view class="item">
+              <text>实付</text><text class="number">￥{{initData.amount}}</text>
+            </view>        
+          </view>
+        </view>   
+      </view>
+      <!-- -->
+      <view class="orderBackgrund" wx:if="{{initData.passenger.passenger_name !== ''}}">
+        <view class="title">登记信息</view>
+        <view class="texts">
+          <view class="orderFlexText">
+            <view class="item">
+              <text>乘客</text><text>{{initData.passenger.passenger_name}}</text>
+            </view>
+            <view class="item">
+              <text>身份证</text><text>{{initData.passenger.passenger_no}}</text>
+            </view>
+            <!-- 被监护人 -->
+            <view wx:if="{{initData.passenger.type != 1}}">
+              <view class="item">
+                <text>乘客</text><text>{{initData.passenger.child_name}}</text>
+              </view>
+              <view class="item">
+                <text>身份证</text><text>{{initData.passenger.child_no}}</text>
+              </view>
+            </view>          
+            <view class="item">
+              <text>电话</text><text>{{initData.passenger.passenger_phone}}</text>
+            </view>
+            <view class="item">
+              <text>日期</text><text>{{initData.flight_at}}</text>
+            </view>             
+          </view>
+        </view>  
+      </view> 
+      <!-- -->
+      <view class="orderBackgrund" wx:if="{{initData.passenger.images}}">
+        <view class="title">飞行科普体验须知图片</view>
+        <view class="texts"> 
+          <view class="uploader_files">
+            <block wx:for="{{initData.passenger.images}}" wx:key="*this">
+              <view class="uploader_file" bindtap="previewImage" id="{{item}}" >
+                <image class="images" src="{{item}}" mode="aspectFill" />
+              </view>
+            </block>  
+          </view>       
+        </view>   
+      </view>
+    </view>
+    <view wx:else>
+      <!-- 详细信息 -->
+      <view class="orderBackgrund">
+        <view class="title">详细信息</view>
+        <view class="texts">
+          <view class="orderFlexText">
+            <view class="item">
+              <text>下单时间</text><text>{{initData.created_at}}</text>
+            </view>
+            <view class="item">
+              <!-- 现场自取/快递邮寄（包邮） -->
+              <text>取货方式</text><text>{{initData.pickup_method}}</text>
+            </view>
+            <view class="item address" wx:if="{{initData.user_address}}">
+              <text>地址信息</text>
+              <view>
+                <text>{{initData.user_address.province_name}}{{initData.user_address.city_name}}
+                {{initData.user_address.county_name}}{{initData.user_address.address}}</text>
+
+                <text>{{initData.user_address.receiver_name}} {{initData.user_address.phone}}</text>
+              </view>
+            </view>        
+            <view class="item">
+              <text>实付</text><text class="number">￥{{initData.amount}}</text>
+            </view>        
+          </view>
+        </view>   
+      </view>
+    </view>
+
+    <!-- 占位 -->
+    <view class="heightDiv"></view>
+
+  </view>
+  <view class="orderBottom">
+    <button class="Btn" bindtap="submitBtn">确认使用</button>
+  </view>
+
+</view>
+
+<!-- 弹窗 -->
+<cancel-modal show="{{showCancelModal}}" title="确认使用" subtitle="是否确认使用该订单？" bind:cancel="useOrder"></cancel-modal>

@@ -1,0 +1,40 @@
+.goods-item{
+  width: 280rpx;
+  display: inline-block;
+  margin-right: 30rpx;
+  margin-top: 20rpx;
+}
+.goods-img{
+  width: 280rpx;
+}
+.img{
+  width: 100%;
+  border-radius: 20rpx;
+}
+.title{
+  font-weight: bold;
+  padding: 10rpx 0;
+  display: block;
+  overflow:hidden; 
+  text-overflow:ellipsis; 
+  white-space:nowrap;
+}
+.price{
+  font-size: 34rpx;
+  font-weight:bold;
+  color: #D95049;
+}
+.unit{
+   font-size: 24rpx;
+   color: #707070;
+   padding-left: 10rpx;
+   font-weight: normal;
+}
+
+.itemNum2 .goods-img{
+  width: 100%;
+}
+.itemNum2{
+  margin:0;
+  width: 100%;
+}

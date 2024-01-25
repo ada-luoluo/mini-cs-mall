@@ -1,0 +1,8 @@
+<view class="navBack {{classStyle?'':'blackStyle'}} {{scrollStyle}}" 
+  style="padding-top: {{menuTop}}px;">
+  <view class="navContant" style="height:{{navBarHeight - menuTop}}px;padding:0 {{menuRight}}px;line-height: {{menuHeight}}px;">
+    <view class="navImg view_item" bindtap="navBack"></view>
+    <view class="view_item">{{title}}</view>
+  </view> 
+</view>
+<view wx:if="{{!classHeight}}" style="height: {{navBarHeight}}px"></view>
